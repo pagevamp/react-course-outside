@@ -1,0 +1,40 @@
+version: '3.8'
+
+volumes:
+  node:
+  next:
+
+services:
+  app.outside.pv:
+    container_name: app.outside.pv
+    userns_mode: 'host'
+    build:
+      context: .
+      target: dev
+      args:
+        user: "${UID}:${GID}"
+        USER_NAME: ${USERNAME}
+        USER_ID: ${UID}
+        GROUP_ID: ${GID}
+    ports:
+      - '3005:3000'
+    expose:
+      - 3000
+    restart: always
+    entrypoint: /bin/sh
+    environment:
+      VIRTUAL_HOST: app.outside.pv
+      VIRTUAL_PORT: 3000
+    volumes:
+      - .:/home/outside/app
+      - ./package.json:/home/outside/app/package.json
+      - ./yarn.lock:/home/outside/app/yarn.lock
+      - node:/home/outside/app/node_modules
+      - next:/home/outside/app/.next
+    networks:
+      - pagevamp
+    command: -c "yarn dev"
+
+networks:
+  pagevamp:
+    external: true

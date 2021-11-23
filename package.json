@@ -1,0 +1,56 @@
+{
+  "name": "outside-app",
+  "version": "1.0.0",
+  "private": true,
+  "engineStrict": true,
+  "engines": {
+    "node": "^16.0.0"
+  },
+  "bugs": {
+    "url": "https://github.com/pagevamp/react-course-outside/issues",
+    "email": "anit@outside.tech"
+  },
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint:next": "next lint",
+    "lint:css": "stylelint \"**/*.{css,less,styl,scss,sass,tsx}\" --ignore-path .gitignore",
+    "format": "prettier --write \"**/*.{js,jsx,ts,tsx}\" --ignore-path .gitignore",
+    "lint": "eslint \"**/*.{js,jsx,ts,tsx}\" --ignore-path .gitignore --fix",
+    "postinstall": "husky install"
+  },
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx,css,scss}": [
+      "npm run format",
+      "npm run lint"
+    ]
+  },
+  "dependencies": {
+    "bootstrap": "^5.1.3",
+    "next": "12.0.4",
+    "next-pwa": "^5.4.0",
+    "react": "17.0.2",
+    "react-dom": "17.0.2",
+    "sass": "^1.43.4"
+  },
+  "devDependencies": {
+    "@iconify/react": "^3.1.0",
+    "@next/bundle-analyzer": "^12.0.4",
+    "@types/node": "16.11.9",
+    "@types/react": "17.0.36",
+    "@typescript-eslint/eslint-plugin": "^5.4.0",
+    "@typescript-eslint/parser": "^5.4.0",
+    "autoprefixer": "^10.4.0",
+    "eslint": "7",
+    "eslint-config-next": "12.0.4",
+    "eslint-config-prettier": "^8.3.0",
+    "husky": "^7.0.4",
+    "lint-staged": "^12.1.2",
+    "prettier": "^2.4.1",
+    "stylelint": "^14.1.0",
+    "stylelint-config-recommended": "^6.0.0",
+    "typescript": "4.5.2",
+    "windicss-webpack-plugin": "^1.5.8"
+  }
+}
