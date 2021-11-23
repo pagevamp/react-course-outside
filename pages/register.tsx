@@ -1,20 +1,25 @@
 import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
-import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import { yupResolver } from '@hookform/resolvers/yup/dist/yup';
-import * as yup from 'yup';
+import { object as yupObject, string as yupString } from 'yup';
+import { registerUser } from 'services/requests/registration';
 
-const schema = yup.object().shape({
-  firstname: yup.string().required(),
-  lastname: yup.string().required(),
-  email: yup.string().email().required(),
-  password: yup.string().min(4).max(16).required(),
+const schema = yupObject().shape({
+  firstname: yupString().required(),
+  lastname: yupString().required(),
+  email: yupString().email().required(),
+  password: yupString().min(6).max(16).required(),
 });
 
+/// react form hook
+/// styled component, css modules
 function Register() {
   const [firstname, setFirstname] = useState('');
   const [lastname, setLastname] = useState('');
   const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [confirmPassword] = useState('');
+
   const {
     register,
     handleSubmit,
@@ -24,7 +29,13 @@ function Register() {
   });
 
   const onSubmit = () => {
-    console.log('register');
+    const response = registerUser({
+      name: firstname,
+      email: email,
+      username: lastname,
+      password: password,
+      confirm_password: confirmPassword,
+    });
   };
 
   return (
@@ -85,6 +96,8 @@ function Register() {
                     className="form-control form-control-lg"
                     id="password"
                     name="password"
+                    onChange={(e) => setPassword(e.target.value)}
+                    value={password}
                     type="password"
                   />
                 </div>

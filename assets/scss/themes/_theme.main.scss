@@ -1,0 +1,14 @@
+.root,
+#root,
+#docs-root {
+  /* @root-font-family */
+  --font-family: 'Nunito Sans', sans-serif, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI',
+    Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol',
+    'Noto Color Emoji';
+  /* @root-font-size */
+  --font-size: 16px;
+  /* @root-font-weight */
+  --font-weight: 400;
+  /* @root-line-height */
+  --line-height: 1.5;
+}

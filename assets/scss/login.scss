@@ -1,0 +1,52 @@
+.login {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 35rem;
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+    align-items: center;
+    background-color: #dbdbdb;
+    padding: 5em;
+    margin: 1em 0;
+    border: 1px solid #aaa;
+    border-radius: 1em;
+
+    &__title {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
+
+    &__input {
+      border: 1px solid #0c9eff;
+      border-radius: 0.5em;
+      font-size: 1.2em;
+      padding: 0.5em 1em;
+      margin: 0.5em 0;
+    }
+
+    &__error {
+      font-size: 1.2em;
+      font-weight: 500;
+      margin: 1em 0;
+      width: 70%;
+      text-align: center;
+      color: rgb(168, 0, 0);
+    }
+
+    &__submit {
+      color: #0c9eff;
+      background-color: #fff;
+      padding: 0.5em 1em;
+      margin-top: 1rem;
+      border: 2px solid #0c9eff;
+      border-radius: 0.5em;
+      font-weight: 500;
+      font-size: 1.2em;
+      cursor: pointer;
+    }
+  }
+}
