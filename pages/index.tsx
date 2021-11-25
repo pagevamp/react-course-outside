@@ -5,6 +5,7 @@ import styles from 'styles/Home.module.scss';
 import { Icon } from '@iconify/react';
 import { useState } from 'react';
 import AboutInfo from 'components/AboutInfo';
+import Link from 'next/link';
 
 const Home: NextPage = () => {
   const [showInfo, toggleInfo] = useState(true);
@@ -18,7 +19,7 @@ const Home: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <input value={name} onChange={(e) => setName(e.target.value)}/>
+      <input value={name} onChange={(e) => setName(e.target.value)} />
       <button onClick={() => toggleInfo(!showInfo)}>Toggle Info</button>
 
       {showInfo && <AboutInfo name={name} id={1} desc={'This is desc'} />}
@@ -29,7 +30,10 @@ const Home: NextPage = () => {
 
       <main className={styles.main}>
         <h1 className={styles.title}>
-          Welcome to <a href="/about">Next.js!</a>
+          Welcome to{' '}
+          <Link href="/about">
+            <a>Next.js!</a>
+          </Link>
         </h1>
 
         <p className={styles.description}>
