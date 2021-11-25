@@ -7,17 +7,17 @@ export function getPromise(url: string): Promise<Record<string, unknown> | false
     .catch(() => false);
 }
 
-export function postPromise(url: string, datas: Record<string, unknown>) {
+export function postPromise(url: string, data: Record<string, unknown>) {
   return axios
-    .post(url, datas)
+    .post(url, data)
     .then((res) => res.data)
     .catch(() => false);
 }
 
 // // PATCH
-export function patchPromise(url: string, datas: Record<string, unknown>) {
+export function patchPromise(url: string, data: Record<string, unknown>) {
   return axios
-    .patch(url, datas)
+    .patch(url, data)
     .then((res) => res.data)
     .catch(() => false);
 }

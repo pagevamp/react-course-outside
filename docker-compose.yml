@@ -33,7 +33,7 @@ services:
       - next:/home/outside/app/.next
     networks:
       - pagevamp
-    command: -c "yarn dev"
+    command: -c "yarn install && yarn dev"
 
 networks:
   pagevamp:
