@@ -6,6 +6,7 @@ import styles from 'styles/Home.module.scss';
 import { Icon } from '@iconify/react';
 import { useState } from 'react';
 import AboutInfo from 'components/AboutInfo';
+import Link from 'next/link';
 
 const Home: NextPage = () => {
   const [showInfo, toggleInfo] = useState(true);
@@ -30,7 +31,10 @@ const Home: NextPage = () => {
 
       <main className={styles.main}>
         <h1 className={styles.title}>
-          Welcome to <Link href="/about">Next.js!</Link>
+          Welcome to{' '}
+          <Link href="/about">
+            <a>Next.js!</a>
+          </Link>
         </h1>
 
         <p className={styles.description}>
