@@ -1,14 +1,15 @@
 import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
-import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import { yupResolver } from '@hookform/resolvers/yup/dist/yup';
-import * as yup from 'yup';
+import {object, string, ref} from 'yup';
 
-const schema = yup.object().shape({
-  firstname: yup.string().required(),
-  lastname: yup.string().required(),
-  email: yup.string().email().required(),
-  password: yup.string().min(4).max(16).required(),
+const schema = object().shape({
+  firstname: string().required(),
+  lastname: string().required(),
+  email: string().email().required(),
+  password: string().min(4).max(16).required(),
+  confirmPassword: string().oneOf([ref("password"),null])
 });
 
 function Register() {
@@ -50,7 +51,7 @@ function Register() {
                 </div>
                 <div className="form-outline mb-4">
                   <label htmlFor="lastname" className="form-label">
-                    Last Name
+                    Last name
                   </label>
                   <input
                     {...register('lastname')}
@@ -87,6 +88,19 @@ function Register() {
                     name="password"
                     type="password"
                   />
+                </div>
+                <div className="form-outline mb-4">
+                  <label htmlFor="confirmPassword" className="form-label">
+                    Confirm Password
+                  </label>
+                  <input
+                    {...register('confirmPassword')}
+                    className="form-control form-control-lg"
+                    id="confirmPassword"
+                    name="confirmPassword"
+                    type="password"
+                  />
+                   {errors.confirmPassword && <span>Password Didn't Match</span>}
                 </div>
                 <button className="btn btn-danger">Register</button>
               </form>
