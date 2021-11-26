@@ -34,7 +34,7 @@ function Register() {
         <div className="col-12 col-md-9 col-lg-7 col-xl-6">
           <div className="card">
             <div className="card-body p-5">
-              <h2 className="text-uppercase text-center mb-5">Create an account</h2>
+              <h2 className="text-uppercase text-center mb-5">Create an Account</h2>
               <form onSubmit={handleSubmit(onSubmit)}>
                 <div className="form-outline mb-4">
                   <label htmlFor="firstname">First Name</label>
