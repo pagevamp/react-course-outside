@@ -2,14 +2,14 @@ import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { yupResolver } from '@hookform/resolvers/yup/dist/yup';
-import {object, string, ref} from 'yup';
+import {object as yupObject, string as yupString, ref} from 'yup';
 
-const schema = object().shape({
-  firstname: string().required(),
-  lastname: string().required(),
-  email: string().email().required(),
-  password: string().min(4).max(16).required(),
-  confirmPassword: string().oneOf([ref("password"),null])
+const schema = yupObject().shape({
+  firstname: yupString().required(),
+  lastname: yupString().required(),
+  email: yupString().email().required(),
+  password: yupString().min(4).max(16).required(),
+  confirmPassword: yupString().oneOf([ref("password"),null])
 });
 
 function Register() {
