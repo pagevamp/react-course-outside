@@ -1,4 +1,5 @@
-import '../assets/scss/app.scss';
+import 'scss/app.scss';
+import 'scss/login.scss';
 import type { AppProps } from 'next/app';
 import 'windi.css';
 
