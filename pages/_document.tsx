@@ -1,6 +1,6 @@
 import React from 'react';
 import Document, { Html, Head, Main, NextScript } from 'next/document';
-import baseTheme from 'themes/base.theme';
+import baseTheme from '@/_themes/base.theme';
 import { getThemeStyles } from 'themes/theme.utils';
 
 const data = [] as { key: string; value: string }[];
@@ -20,17 +20,7 @@ export default class MyDocument extends Document {
             rel="stylesheet"
           />
           <meta name="theme-color" content="#fff" />
-          <style>
-            <>
-              {`:root \{`}
-              {variables.map((data, index) => (
-                <React.Fragment key={index}>
-                  {data.key}: {data.value};
-                </React.Fragment>
-              ))}
-              {`}`}
-            </>
-          </style>
+          <style dangerouslySetInnerHTML={{ __html: `:root { ${variables} }` }} />
         </Head>
         <body className="root font-sans font-body bg-cool-gray-100 dark:bg-dark-900">
           <Main />

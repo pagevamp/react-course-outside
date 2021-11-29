@@ -1,7 +1,6 @@
-/* eslint-disable @typescript-eslint/ban-ts-comment */
 import { ITheme, IThemeColors, IThemeSpaces } from '@/_themes/types.theme';
 
-export function getMappedThemeValues(theme: ITheme, key: keyof ITheme, collector?: any[]) {
+export function getMappedThemeValues(theme: ITheme, key: keyof ITheme, collector?: string[]) {
   const data = theme[key];
   if (!data) {
     return {};
@@ -11,10 +10,7 @@ export function getMappedThemeValues(theme: ITheme, key: keyof ITheme, collector
     const val = data[variable] as string | undefined;
     if (val) {
       const variableName = `--${key}-${variable}`;
-      collector?.push({
-        key: variableName,
-        value: val,
-      });
+      collector?.push(`${variableName}: ${val};`);
 
       obj[variableName] = val;
     }
@@ -59,9 +55,9 @@ export const applyCustomTheme = (theme: ITheme): void => {
 };
 
 export function getThemeStyles(theme: ITheme) {
-  const data = [] as { key: string; value: string }[];
+  const data = [] as string[];
   Object.keys(theme).forEach((property) => {
     getMappedThemeValues(theme, property as keyof ITheme, data);
   });
-  return data;
+  return data.join('');
 }
