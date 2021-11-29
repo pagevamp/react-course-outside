@@ -1,11 +1,7 @@
 {
   "compilerOptions": {
     "target": "es5",
-    "lib": [
-      "dom",
-      "dom.iterable",
-      "esnext"
-    ],
+    "lib": ["dom", "dom.iterable", "esnext"],
     "skipLibCheck": true,
     "strict": true,
     "forceConsistentCasingInFileNames": true,
@@ -19,24 +15,18 @@
     "incremental": true,
     "baseUrl": ".",
     "paths": {
-      "scss/*": [
-        "./assets/scss/*"
-      ],
-      "styles/*": [
-        "./assets/cssModules/*"
-      ],
-      "components/*": [
-        "./components/*"
-      ],
+      "@/*": ["./*"],
+      "schemas/*": ["./@schemas/*"],
+      "types/*": ["./@types/*"],
+      "scss/*": ["./assets/scss/*"],
+      "styles/*": ["./assets/styles/*"],
+      "components/*": ["./components/*"],
+      "layouts/*": ["./layouts/*"],
+      "services/*": ["./services/*"],
+      "themes/*": ["./_themes/*"]
     },
-    "allowJs": true
+    "allowJs": false
   },
-  "include": [
-    "next-env.d.ts",
-    "**/*.ts",
-    "**/*.tsx"
-  ],
-  "exclude": [
-    "node_modules"
-  ]
+  "include": ["next-env.d.ts", "global.d.ts", "**/*.ts", "**/*.tsx"],
+  "exclude": ["node_modules"]
 }
