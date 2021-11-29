@@ -19,7 +19,9 @@ const Home: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <input value={name} onChange={(e) => setName(e.target.value)} />
+
+      <input value={name} onChange={(e) => setName(e.target.value)}/>
+      
       <button onClick={() => toggleInfo(!showInfo)}>Toggle Info</button>
 
       {showInfo && <AboutInfo name={name} id={1} desc={'This is desc'} />}
