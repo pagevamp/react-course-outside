@@ -15,9 +15,9 @@
     "build": "next build",
     "start": "next start",
     "lint:next": "next lint",
-    "lint:css": "NODE_ENV=production stylelint \"**/*.{css,less,styl,scss,sass,tsx}\" --ignore-path .gitignore",
-    "format": "NODE_ENV=production prettier --write \"**/*.{js,jsx,ts,tsx}\" --ignore-path .gitignore",
-    "lint": "NODE_ENV=production eslint \"**/*.{js,jsx,ts,tsx}\" --ignore-path .gitignore --fix",
+    "lint:css": "cross-env NODE_ENV=production stylelint \"**/*.{css,less,styl,scss,sass,tsx}\" --ignore-path .gitignore",
+    "format": "cross-env NODE_ENV=production prettier --write \"**/*.{js,jsx,ts,tsx}\" --ignore-path .gitignore",
+    "lint": "cross-env NODE_ENV=production eslint \"**/*.{js,jsx,ts,tsx}\" --ignore-path .gitignore --fix",
     "postinstall": "husky install"
   },
   "lint-staged": {
@@ -30,6 +30,7 @@
     "@hookform/resolvers": "^2.8.3",
     "autoprefixer": "^10.4.0",
     "axios": "^0.24.0",
+    "cross-env": "^7.0.3",
     "next": "^12.0.4",
     "next-pwa": "^5.4.0",
     "next-svgr": "^0.0.2",
