@@ -6,5 +6,5 @@ type ILoginRequest = Pick<IUser, 'email'> & {
 };
 
 export function login(data: ILoginRequest): Promise<IUser | false> {
-  return postPromise(`/api/login`, data);
+  return postPromise(`/login`, data);
 }
